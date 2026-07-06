@@ -8,9 +8,9 @@ namespace TrendingEngine.Controllers;
 public class DebugController : ControllerBase
 {
     private readonly GithubTrendingService _github;
-    private readonly RedditScraperService _reddit;
+    private readonly HackerNewsScraperService _reddit;
 
-    public DebugController(GithubTrendingService github, RedditScraperService reddit)
+    public DebugController(GithubTrendingService github, HackerNewsScraperService reddit)
     {
         _github = github;
         _reddit = reddit;

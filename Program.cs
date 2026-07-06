@@ -22,7 +22,7 @@ builder.Services.AddHttpClient("reddit", client =>
     client.DefaultRequestHeaders.Add("User-Agent", "TrendingEngine/1.0"));
 
 builder.Services.AddScoped<GithubTrendingService>();
-builder.Services.AddScoped<RedditScraperService>();
+builder.Services.AddScoped<HackerNewsScraperService>();
 
 builder.Services.AddHangfire(config =>
     config.UsePostgreSqlStorage(options =>
@@ -42,7 +42,7 @@ RecurringJob.AddOrUpdate<GithubTrendingService>(
     x => x.RunAsync(),
     Cron.Hourly);
 
-RecurringJob.AddOrUpdate<RedditScraperService>(
+RecurringJob.AddOrUpdate<HackerNewsScraperService>(
     "hackernews-top",
     x => x.RunAsync(),
     "*/30 * * * *");

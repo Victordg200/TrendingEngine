@@ -4,16 +4,16 @@ using TrendingEngine.Data;
 
 namespace TrendingEngine.Services;
 
-public class RedditScraperService
+public class HackerNewsScraperService
 {
     private readonly IHttpClientFactory _httpClientFactory;
     private readonly AppDbContext _db;
-    private readonly ILogger<RedditScraperService> _logger;
+    private readonly ILogger<HackerNewsScraperService> _logger;
 
-    public RedditScraperService(
+    public HackerNewsScraperService(
         IHttpClientFactory httpClientFactory,
         AppDbContext db,
-        ILogger<RedditScraperService> logger)
+        ILogger<HackerNewsScraperService> logger)
     {
         _httpClientFactory = httpClientFactory;
         _db = db;
