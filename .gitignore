@@ -1,0 +1,31 @@
+## Compilados
+bin/
+obj/
+
+## Configuración con secretos — NO subir la contraseña real de PostgreSQL
+appsettings.json
+
+## IDE y editor
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+## NuGet
+*.nupkg
+*.snupkg
+
+## Tests
+TestResults/
+
+## Logs
+*.log
+
+## Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+## Publicación
+publish/
