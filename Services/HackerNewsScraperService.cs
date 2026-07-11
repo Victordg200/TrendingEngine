@@ -55,10 +55,7 @@ public class HackerNewsScraperService
                 "\"Score\" = EXCLUDED.\"Score\", " +
                 "\"NumComments\" = EXCLUDED.\"NumComments\", " +
                 "\"ScrapedAt\" = EXCLUDED.\"ScrapedAt\"",
-                postId, title, "hackernews", score, comments,
-                (object?)url ?? DBNull.Value,
-                (object?)author ?? DBNull.Value,
-                scrapedAt);
+                postId, title, "hackernews", score, comments, url, author, scrapedAt);
 
             saved++;
         }

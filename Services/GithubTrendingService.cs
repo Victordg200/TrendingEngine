@@ -55,12 +55,12 @@ public class GithubTrendingService
             var forks = ParseNumber(forksRaw);
             var scrapedAt = DateTime.UtcNow;
 
-await _db.Database.ExecuteSqlRawAsync(
-    "INSERT INTO \"GithubRepos\" (\"RepoName\", \"Owner\", \"Language\", \"Stars\", \"Forks\", \"TrendingOn\", \"ScrapedAt\") " +
-    "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}) " +
-    "ON CONFLICT (\"RepoName\", \"TrendingOn\") " +
-    "DO UPDATE SET \"Stars\" = EXCLUDED.\"Stars\", \"Forks\" = EXCLUDED.\"Forks\", \"ScrapedAt\" = EXCLUDED.\"ScrapedAt\"",
-    repoName, owner, (object?)languageParam ?? DBNull.Value, stars, forks, today, scrapedAt);
+            await _db.Database.ExecuteSqlRawAsync(
+                "INSERT INTO \"GithubRepos\" (\"RepoName\", \"Owner\", \"Language\", \"Stars\", \"Forks\", \"TrendingOn\", \"ScrapedAt\") " +
+                "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}) " +
+                "ON CONFLICT (\"RepoName\", \"TrendingOn\") " +
+                "DO UPDATE SET \"Stars\" = EXCLUDED.\"Stars\", \"Forks\" = EXCLUDED.\"Forks\", \"ScrapedAt\" = EXCLUDED.\"ScrapedAt\"",
+                repoName, owner, languageParam, stars, forks, today, scrapedAt);
 
             saved++;
         }
