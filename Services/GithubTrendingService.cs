@@ -60,7 +60,7 @@ public class GithubTrendingService
                 "VALUES ({0}, {1}, {2}, {3}, {4}, {5}, {6}) " +
                 "ON CONFLICT (\"RepoName\", \"TrendingOn\") " +
                 "DO UPDATE SET \"Stars\" = EXCLUDED.\"Stars\", \"Forks\" = EXCLUDED.\"Forks\", \"ScrapedAt\" = EXCLUDED.\"ScrapedAt\"",
-                repoName, owner, languageParam, stars, forks, today, scrapedAt);
+                repoName, owner, languageParam!, stars, forks, today, scrapedAt);
 
             saved++;
         }
